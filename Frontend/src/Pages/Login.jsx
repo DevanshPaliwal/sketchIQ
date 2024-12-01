@@ -3,10 +3,15 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    axios.defaults.withCredentials = true;
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+
+    const navigateToSignup = () => {
+        navigate('/signup', { replace: true });
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -63,10 +68,17 @@ const Login = () => {
                     </button>
                 </form>
 
-                <p className="text-center text-gray-500 mt-4">
-                    Don't have an account? 
-                    <a href="/signup" className="text-blue-600 hover:underline"> Create one</a>
-                </p>
+                <div className="mt-4 text-center">
+                    <p className="text-sm text-gray-600">
+                        Don't have an account?  
+                        <button 
+                            onClick={navigateToSignup} 
+                            className="text-blue-600 hover:underline"
+                        >
+                            Create one
+                        </button>
+                    </p>
+                </div>
             </div>
         </div>
     );
