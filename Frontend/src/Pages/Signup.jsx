@@ -114,12 +114,12 @@ const Signup = () => {
 
                 <div className="mt-4 text-center">
                     <p className="text-sm text-gray-600">
-                        Already have an account?  
+                        Already have an account?&nbsp; 
                         <button 
                             onClick={navigateToLogin} 
                             className="text-blue-600 hover:underline"
                         >  
-                            Login
+                           Login
                         </button>
                     </p>
                 </div>

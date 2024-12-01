@@ -70,7 +70,7 @@ const Login = () => {
 
                 <div className="mt-4 text-center">
                     <p className="text-sm text-gray-600">
-                        Don't have an account?  
+                        Don't have an account?&nbsp;
                         <button 
                             onClick={navigateToSignup} 
                             className="text-blue-600 hover:underline"
