@@ -152,7 +152,7 @@ const LandingPage = () => {
             {/* Footer with subtle animation */}
             <footer className="bg-blue-900 text-white py-12 animate-fade-in">
                 <div className="container mx-auto px-4 text-center">
-                    <p className="transition-opacity hover:opacity-80">&copy; Made by the GOAT</p>
+                    <p className="transition-opacity hover:opacity-80">&copy; Made by someone!</p>
                 </div>
             </footer>
         </div>
