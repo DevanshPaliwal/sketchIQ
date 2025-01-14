@@ -21,7 +21,7 @@ const Home = () => {
         <div className="min-h-screen bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex flex-col">
             {/* Navbar */}
             <nav className="bg-white shadow-md py-4 px-8 flex justify-between items-center">
-                <h1 className="text-2xl font-bold text-indigo-600">Paint.io</h1>
+                <h1 className="text-2xl font-bold text-indigo-600">SketchIQ</h1>
                 <button
                     onClick={handleLogout}
                     className="flex items-center space-x-2 bg-red-600 text-white px-4 py-2 rounded-lg shadow hover:bg-red-700 transition"
@@ -44,8 +44,8 @@ const Home = () => {
                         className="group bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-2xl transform hover:-translate-y-2 transition"
                     >
                         <FaPaintBrush className="text-5xl text-indigo-600 mb-4 mx-auto group-hover:scale-110 transition" />
-                        <h3 className="text-xl font-bold text-center text-indigo-700">Create a Drawing</h3>
-                        <p className="text-gray-600 text-center mt-2">Start painting your masterpiece with our powerful tools.</p>
+                        <h3 className="text-xl font-bold text-center text-indigo-700">Create Something</h3>
+                        <p className="text-gray-600 text-center mt-2">Start your work.</p>
                     </div>
 
                     {/* View Drawings */}
@@ -54,8 +54,8 @@ const Home = () => {
                         className="group bg-white rounded-lg shadow-lg p-6 cursor-pointer hover:shadow-2xl transform hover:-translate-y-2 transition"
                     >
                         <FaEye className="text-5xl text-green-600 mb-4 mx-auto group-hover:scale-110 transition" />
-                        <h3 className="text-xl font-bold text-center text-green-700">View Drawings</h3>
-                        <p className="text-gray-600 text-center mt-2">Explore all your saved drawings and artwork.</p>
+                        <h3 className="text-xl font-bold text-center text-green-700">View Your Work</h3>
+                        <p className="text-gray-600 text-center mt-2">Explore all your saved work.</p>
                     </div>
 
                     {/* Account Info */}
