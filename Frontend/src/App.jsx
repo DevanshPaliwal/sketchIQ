@@ -9,6 +9,7 @@ import View from './Components/View';
 import Draw from './Components/Draw';
 import { AuthProvider } from './Auth/AuthContext';
 import LandingPage from './Pages/LandingPage';
+import ChatbotPage from './Pages/Chatbot';
 
 
 // Existing Icons (with minimal updates)
@@ -26,6 +27,7 @@ const App = () => {
                 <Route path="/account" element={<Account />} />
                 <Route path="/view" element={<View />} />
                 <Route path="/draw" element={<Draw />} />
+                <Route path='/chatbot' element={<ChatbotPage/>}/>
             </Routes>
         </Router>
     );
