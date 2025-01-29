@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_session import Session
 from db import *
 import os
-import subprocess
+from chatbot import chat_with_llama
 
 app = Flask(__name__)
 
@@ -125,24 +125,6 @@ def change_password():
         return jsonify({"message": "Failed to change password"}), 400
     
 
-
-
-def chat_with_llama(message):
-    try:
-        # Run the Ollama command and capture the output
-        result = subprocess.run(
-            ["ollama", "run", "llama3.1", message, "respond","under","30","words"],
-            capture_output=True, text=True
-        )
-
-        # Check if there was any error during the execution
-        if result.returncode != 0:
-            return f"Error: {result.stderr.strip()}"
-
-        return result.stdout.strip()  # Return the cleaned response text
-    except Exception as e:
-        return f"Exception occurred: {str(e)}"
-    
 @app.route('/chat', methods=['POST'])
 def chat():
     # if 'user' not in session:
@@ -155,6 +137,8 @@ def chat():
 
     response = chat_with_llama(user_input)
     return jsonify({"response": response})
+
+
 
 
 if __name__ == '__main__':
