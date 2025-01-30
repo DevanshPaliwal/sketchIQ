@@ -139,6 +139,33 @@ def chat():
     return jsonify({"response": response})
 
 
+import os
+import base64
+from io import BytesIO
+from PIL import Image
+
+@app.route('/upload', methods=['POST'])
+def upload_image():
+    data = request.json.get('image')
+    if not data:
+        return jsonify({"message": "No image provided"}), 400
+    
+    # Decode base64 image data
+    image_data = data.split(",")[1]
+    image_bytes = base64.b64decode(image_data)
+    
+    image = Image.open(BytesIO(image_bytes))
+    
+    # Save image in the same directory as app.py
+    image_path = os.path.join(os.getcwd(), "uploaded_image.png")
+    image.save(image_path)
+    print(image_path)
+    
+    return jsonify({"message": "Image uploaded successfully", "path": image_path})
+
+
+
+
 
 
 if __name__ == '__main__':
