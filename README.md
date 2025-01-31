@@ -1,34 +1,30 @@
-# 🎨 Paint.io : Online Creative Canvas 🖌️
+# ✏️ SketchIQ: AI-Powered Equation & Word Problem Solver
 
 ## 📝 Project Overview
 
-Paint.io is a free, open-source web application that empowers artists and creative individuals to unleash their imagination through a comprehensive digital painting experience. With a wide range of tools, brushes, and customization options, users can create, save, and share their artwork seamlessly.
+SketchIQ is an intelligent platform that allows users to write equations and word problems on a digital canvas, leveraging AI to provide instant solutions. The platform supports user authentication and saves problem history for future reference.
 
 ## ✨ Features
 
-### 🖌️ Drawing Tools
-- Multiple brush styles (watercolor, oil, acrylic, pencil)
-- Various pen types (ballpoint, fountain, digital)
-- Marker collection with different tip sizes and opacities
-- Customizable brush properties (size, opacity, flow)
+### 🖌️ Writing & Drawing Tools
+- Freehand writing and equation input
+- Text recognition (OCR) for equations and word problems
+- Customizable pen, brush, and eraser settings
 
-### 🎨 Color Palette
-- Extensive color wheel
-- Color picker with RGB and HEX support
-- Gradient and pattern fills
-- Preset color palettes
+### 🤖 AI-Powered Solutions
+- Real-time equation solving
+- Step-by-step solutions for mathematical problems
+- Word problem understanding and AI-generated solutions
 
-### 🖼️ Canvas Options
-- Multiple canvas sizes and orientations
-- Background textures
-- Layer management
+### 🖼️ Canvas & Storage
+- Multiple canvas sizes
+- Save and retrieve problems
 - Undo/Redo functionality
 
 ### 👤 User Management
 - Secure signup and login
 - Profile customization
-- Artwork gallery
-- Save and export drawings (PNG, JPEG, SVG)
+- Saved problems history
 
 ## 🚀 Tech Stack
 
@@ -37,20 +33,21 @@ Paint.io is a free, open-source web application that empowers artists and creati
 - **Backend**: Flask (Python)
 - **Database**: MongoDB
 - **Authentication**: Clerk/JWT
+- **AI Integration**: OpenAI API
 
 ## 🛠️ Installation
 
 ### Prerequisites
-- Python 
-- Node.js 
-- npm 
+- Python
+- Node.js
+- npm
 - MongoDB
 
 ### Steps
 1. Clone the repository
    ```bash
-   git clone https://github.com/DevanshPaliwal/paint-io.git
-   cd paint-io
+   git clone https://github.com/DevanshPaliwal/sketchIQ.git
+   cd sketchIQ
    ```
 
 2. Set up Backend (Flask)
@@ -70,10 +67,10 @@ Paint.io is a free, open-source web application that empowers artists and creati
    ```
 
 4. Configure Environment Variables
-   - Create `.env` in backend folder
-   - Add `MONGODB_URI`, `JWT_SECRET`, `FLASK_SECRET_KEY`
+   - Create `.env` in the backend folder
+   - Add `MONGODB_URI`, `JWT_SECRET`, `FLASK_SECRET_KEY`, `OPENAI_API_KEY`
    
-   - Create `.env` in frontend folder
+   - Create `.env` in the frontend folder
    - Add any necessary frontend configuration
 
 5. Run the Application
@@ -93,12 +90,9 @@ Paint.io is a free, open-source web application that empowers artists and creati
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📜 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-Project Link: [https://github.com/DevanshPaliwal/paint-io](https://github.com/DevanshPaliwal/paint-io)
+Project Link: [https://github.com/DevanshPaliwal/sketchIQ](https://github.com/DevanshPaliwal/sketchIQ)
 
 ---
 
-**Happy Painting! 🖼️✨**
+**Happy Problem Solving! ✏️💡**
