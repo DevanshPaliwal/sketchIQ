@@ -79,7 +79,7 @@ function Draw() {
     const imageData = tempCanvas.toDataURL("image/png");
   
     try {
-      const response = await fetch("http://localhost:5000/upload", {
+      const response = await fetch("https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

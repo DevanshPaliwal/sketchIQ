@@ -25,7 +25,8 @@ const Account = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.post('http://localhost:5000/account');
+        // const response = await axios.post('http://localhost:5000/account');
+        const response = await axios.post('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/account');
         const { username, created_at } = response.data;
 
         setUserData({
@@ -45,7 +46,10 @@ const Account = () => {
   // Save the updated username
   const saveUsername = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/account/update-username', {
+      // const response = await axios.put('http://localhost:5000/account/update-username', {
+      //   username: newUsername,
+      // });
+      const response = await axios.put('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/account/update-username', {
         username: newUsername,
       });
       alert(response.data.message);
@@ -60,7 +64,8 @@ const Account = () => {
   // Handle password change
   const changePassword = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/account/change-password', passwords);
+      // const response = await axios.put('http://localhost:5000/account/change-password', passwords);
+      const response = await axios.put('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/account/change-password', passwords);
       alert(response.data.message);
       setPasswords({ currentPassword: '', newPassword: '' }); // Reset form
     } catch (error) {
