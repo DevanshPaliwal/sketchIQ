@@ -1,14 +1,14 @@
-from flask import Flask, request, jsonify, session
+from flask import Flask, request, jsonify, session, send_from_directory
 from flask_cors import CORS
 from flask_session import Session
 from db import *
 import os
 from chatbot import chat_with_llama
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='build', static_url_path='')
 
 # Enable CORS (Cross-Origin Resource Sharing) for the frontend to interact with the backend
-CORS(app, supports_credentials=True)
+CORS(app, supports_credentials=True,origins="*")
 
 # Configure session
 app.config['SECRET_KEY'] = os.urandom(24)  # Generate a secure random secret key
@@ -163,10 +163,16 @@ def upload_image():
     
     return jsonify({"message": "Image uploaded successfully", "path": image_path})
 
-
+@app.route('/')
+@app.route('/<path:path>')
+def serve(path=''):
+    if path and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True,host="0.0.0.0" ,port=5000)

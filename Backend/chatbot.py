@@ -5,6 +5,7 @@ from flask_session import Session
 from db import *
 import os
 def chat_with_llama(message):
+    print(message)
     try:
         # Run the Ollama command and capture the output
         result = subprocess.run(
