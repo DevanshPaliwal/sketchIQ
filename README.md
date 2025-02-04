@@ -32,8 +32,7 @@ SketchIQ is an intelligent platform that allows users to write equations and wor
 - **Styling**: Tailwind CSS
 - **Backend**: Flask (Python)
 - **Database**: MongoDB
-- **Authentication**: Clerk/JWT
-- **AI Integration**: OpenAI API
+- **AI Integration**: Meta Llama3.1
 
 ## 🛠️ Installation
 
