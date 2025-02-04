@@ -1,35 +1,20 @@
-# import cv2
-# from PIL import Image
-# import pytesseract
+from transformers import TrOCRProcessor, VisionEncoderDecoderModel
+from PIL import Image
 
-# # Load image
-# image_path = "D:/paintio/uploaded_image.png"
-# image = cv2.imread(image_path)
+# Load pre-trained model and processor
+processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
+model = VisionEncoderDecoderModel.from_pretrained("microsoft/trocr-base-handwritten")
 
-# # Preprocessing
-# gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-# _, thresholded = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)
-# dilated = cv2.dilate(thresholded, None, iterations=1)
-
-# # Save preprocessed image (for debugging purposes)
-# cv2.imwrite("D:/paintio/preprocessed_image.png", dilated)
-
-# # Perform OCR
-# config = "--psm 10"  # OCR single character
-# text = pytesseract.image_to_string(dilated, config=config)
-# print("Extracted Text:", text)
-
-import easyocr
-
-# Initialize EasyOCR reader
-reader = easyocr.Reader(['en'])  # Specify language, e.g., 'en' for English
-
-# Path to your image
+# Load image
 image_path = "D:/paintio/uploaded_image.png"
+image = Image.open(image_path).convert("RGB")
 
 # Perform OCR
-result = reader.readtext(image_path)
+pixel_values = processor(images=image, return_tensors="pt").pixel_values
+generated_ids = model.generate(pixel_values)
+text = processor.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
-# Print the result
-for (bbox, text, confidence) in result:
-    print(f"Detected Text: {text} (Confidence: {confidence:.2f})")
+print("Extracted Text:", text)
+
+def returnText():
+    return text

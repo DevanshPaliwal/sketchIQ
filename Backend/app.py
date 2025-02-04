@@ -4,6 +4,7 @@ from flask_session import Session
 from db import *
 import os
 from chatbot import chat_with_llama
+from image_ml import returnText
 
 app = Flask(__name__,static_folder='build', static_url_path='')
 
@@ -162,6 +163,9 @@ def upload_image():
     print(image_path)
     
     return jsonify({"message": "Image uploaded successfully", "path": image_path})
+
+# send this image text to the draw page after answering with AI response
+imgText=returnText()
 
 @app.route('/')
 @app.route('/<path:path>')
