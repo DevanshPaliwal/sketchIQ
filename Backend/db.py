@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # MongoDB setup (replace with your connection string)
-MONGO_URI = 'mongodb+srv://paliwaldevansh2005:ZLhrlVWluhMbS9Ie@paintapp.9go9p.mongodb.net/'
+MONGO_URI = 'your mongo string'
 DB_NAME = 'userdatabase'
 COLLECTION_NAME = 'users'
 
