@@ -4,7 +4,7 @@ from flask_session import Session
 from db import *
 import os
 from chatbot import chat_with_llama
-from image_ml import returnText
+# from image_ml import returnText
 
 app = Flask(__name__,static_folder='build', static_url_path='')
 
@@ -74,7 +74,7 @@ def signup():
 def get_account_info():
     # Get the username from the session
     username = session.get('user') # Ensure that the username is stored in the session
-    
+    # print(username)
     if not username:
         return jsonify({"error": "User not logged in"}), 401
 
@@ -153,6 +153,9 @@ def upload_image():
     
     # Decode base64 image data
     image_data = data.split(",")[1]
+    username = request.json.get('username')
+    print(username)
+    sendImageDB(image_data,username)
     image_bytes = base64.b64decode(image_data)
     
     image = Image.open(BytesIO(image_bytes))
@@ -165,7 +168,7 @@ def upload_image():
     return jsonify({"message": "Image uploaded successfully", "path": image_path})
 
 # send this image text to the draw page after answering with AI response
-imgText=returnText()
+# imgText=returnText()
 
 @app.route('/')
 @app.route('/<path:path>')

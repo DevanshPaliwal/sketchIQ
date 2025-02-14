@@ -1,14 +1,18 @@
 from pymongo import MongoClient
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 # MongoDB setup (replace with your connection string)
-MONGO_URI = 'your mongo string'
+MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = 'userdatabase'
 COLLECTION_NAME = 'users'
 
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 users_collection = db[COLLECTION_NAME]
+image_collection=db['imagedata']
 
 def get_user_by_username(username):
     return users_collection.find_one({"username": username})
@@ -51,5 +55,15 @@ def update_userpass(username,new_password):
         {"$set": {"password": new_password}}
     )
     return result.modified_count > 0
+
+
+def sendImageDB(image,username='dp'):
+    try:
+        image_collection.insert_one({"username": username, "image": image})
+        return True
+    except Exception as e:
+        print(f"Error adding imageData: {e}")
+        return False
+
 
 
