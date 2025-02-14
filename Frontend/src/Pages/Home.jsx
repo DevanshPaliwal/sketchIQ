@@ -8,8 +8,8 @@ const Home = () => {
 
     const   handleLogout = async () => {
         try {
-            // const response = await axios.post('http://localhost:5000/logout');
-            const response = await axios.post('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/logout');
+            const response = await axios.post('http://localhost:5000/logout');
+            // const response = await axios.post('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/logout');
             if (response.data.message === 'Logged out successfully') {
                 navigate('/', { replace: true });
             }
