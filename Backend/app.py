@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_session import Session
 from db import *
 import os
-from chatbot import chat_with_llama
+from chatbot import chat_with_ai
 # from image_ml import returnText
 
 app = Flask(__name__,static_folder='build', static_url_path='')
@@ -136,7 +136,7 @@ def chat():
     if not user_input:
         return jsonify({"message": "No message provided"}), 400
 
-    response = chat_with_llama(user_input)
+    response = chat_with_ai(user_input)
     return jsonify({"response": response})
 
 
