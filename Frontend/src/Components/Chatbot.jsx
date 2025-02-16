@@ -13,7 +13,7 @@ const ChatbotPage = () => {
             const newMessage = { sender: 'user', text: userInput };
             setMessages((prevMessages) => [...prevMessages, newMessage]);
             setLoading(true);
-    
+            
             try {
                 const response = await axios.post(
                     'http://localhost:5000/chat',
@@ -25,6 +25,16 @@ const ChatbotPage = () => {
                         withCredentials: true,
                     }
                 );
+                // const response = await axios.post(
+                //     'https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/chat',
+                //     { message: userInput },
+                //     {
+                //         headers: {
+                //             'Content-Type': 'application/json',
+                //         },
+                //         withCredentials: true,
+                //     }
+                // );
     
                 if (response.data && response.data.response) {
                     const botResponse = { sender: 'bot', text: response.data.response };
