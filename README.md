@@ -33,7 +33,7 @@ SketchIQ is an intelligent platform that allows users to write equations and wor
 - **Backend**: Flask (Python)
 - **Database**: MongoDB
 - **OCR Model**: Microsoft TrOCR
-- **AI Integration**: Meta Llama3.1
+- **AI Integration**: Meta Llama3.1 and Gemini 2.0 Flash
 
 ## 🛠️ Installation
 
