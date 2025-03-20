@@ -4,7 +4,7 @@ from flask_session import Session
 from db import *
 import os
 from chatbot import chat_with_ai
-# from image_ml import returnText
+from image_ml import *
 
 app = Flask(__name__,static_folder='build', static_url_path='')
 
@@ -140,11 +140,6 @@ def chat():
     return jsonify({"response": response})
 
 
-import os
-import base64
-from io import BytesIO
-from PIL import Image
-
 @app.route('/upload', methods=['POST'])
 def upload_image():
     data = request.json.get('image')
@@ -156,19 +151,11 @@ def upload_image():
     username = request.json.get('username')
     print(username)
     sendImageDB(image_data,username)
-    image_bytes = base64.b64decode(image_data)
-    
-    image = Image.open(BytesIO(image_bytes))
-    
-    # Save image in the same directory as app.py
-    image_path = os.path.join(os.getcwd(), "uploaded_image.png")
-    image.save(image_path)
-    print(image_path)
-    
-    return jsonify({"message": "Image uploaded successfully", "path": image_path})
-
-# send this image text to the draw page after answering with AI response
-# imgText=returnText()
+    image=get_image_from_db(username)
+    extracted_text = extract_text_from_image(image)
+    print("Extracted Text:", extracted_text)
+    answer = chat_with_ai(extracted_text+" "+"try to understand the mathematical equation, like if 't' is written it could be '+', if '-' is written at the end it could be '=' and answer appropriately, for equations, only give answer in one sentence and for word problems, use only plain text no style ")
+    return jsonify({"message": "Image uploaded successfully","answer":answer})
 
 @app.route('/')
 @app.route('/<path:path>')

@@ -28,7 +28,6 @@ load_dotenv()
 
 
 genai.configure(api_key=os.getenv("api_key"))
-# Create the model
 
 # Create the model
 generation_config = {

@@ -57,13 +57,15 @@ def update_userpass(username,new_password):
     return result.modified_count > 0
 
 
-def sendImageDB(image,username='dp'):
+def sendImageDB(image, username='dp'):
     try:
-        image_collection.insert_one({"username": username, "image": image})
+        image_collection.update_one(
+            {"username": username},  # Filter
+            {"$set": {"image": image}},  # Update data
+            upsert=True  # Insert if not found
+        )
         return True
     except Exception as e:
-        print(f"Error adding imageData: {e}")
+        print(f"Error adding/updating imageData: {e}")
         return False
-
-
 
