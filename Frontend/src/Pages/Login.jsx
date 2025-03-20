@@ -16,10 +16,10 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            // const response = await axios.post('http://localhost:5000/login', { username, password });
-            const response = await axios.post('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/login', { username, password });
+            const response = await axios.post('http://localhost:5000/login', { username, password });
+            // const response = await axios.post('https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app/login', { username, password });
             if (response.data.message === 'Login successful') {
-                console.log("https://2426-2401-4900-547d-5007-893c-cffe-5f2a-269a.ngrok-free.app")
+                
                 navigate('/home', { replace: true });
             }
         } catch (err) {
