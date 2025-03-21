@@ -81,21 +81,18 @@ function Draw() {
     const imageData = tempCanvas.toDataURL('image/png');
 
     try {
-      setLoading(true);
-      const response = await fetch('http://localhost:5000/upload', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ image: imageData, username: username }),
-      });
-      const result = await response.json();
-      console.log('Server Response:', result);
-      setAiAnswer(result.answer);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error sending image to server:', error);
-    }
+  setLoading(true);
+  const response = await axios.post('http://localhost:5000/upload', {
+    image: imageData,
+    username: username,
+  });
+  console.log('Server Response:', response.data);
+  setAiAnswer(response.data.answer);
+  setLoading(false);
+} catch (error) {
+  console.error('Error sending image to server:', error);
+}
+
   };
 
   return (
