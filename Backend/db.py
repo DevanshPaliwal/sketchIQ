@@ -69,3 +69,12 @@ def sendImageDB(image, username='dp'):
         print(f"Error adding/updating imageData: {e}")
         return False
 
+def getImageDB(username):
+    try:
+        data = image_collection.find_one({"username": username})
+        if data and "image" in data:
+            return data["image"]
+        return None
+    except Exception as e:
+        print(f"Error fetching image: {e}")
+        return None

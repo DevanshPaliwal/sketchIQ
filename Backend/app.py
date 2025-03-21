@@ -166,6 +166,12 @@ def serve(path=''):
         return send_from_directory(app.static_folder, 'index.html')
 
 
+@app.route('/images', methods=['POST'])
+def get_images():
+    username = session.get('user')
+    print(username)
+    images = getImageDB(username)  
+    return jsonify(images)
 
 
 if __name__ == '__main__':
