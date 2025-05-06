@@ -1,0 +1,9 @@
+Flask
+flask-cors
+Flask-Session
+pymongo
+python-dotenv
+Pillow
+transformers
+torch
+google-generativeai
