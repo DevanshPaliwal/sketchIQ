@@ -10,18 +10,8 @@ Welcome to **SketchIQ**, your smart companion for solving **handwritten math equ
 - 🔍 **OCR-Powered Recognition** – Converts sketches to text using TrOCR
 - 🤖 **AI-Powered Solving** – LLMs interpret and solve your input
 - 🧾 **Smart Summaries** – Receive structured answers and solutions
-- 🔐 **User Authentication** – Login via phone or Google
+- 🔐 **User Authentication** – Login username and password
 - 💾 **Cloud Storage** – Save sketches and responses for later use
-
----
-
-## 🧠 How It Works
-
-1. ✍️ User **draws** a problem on the canvas
-2. 📸 Image is sent to the backend
-3. 🔤 **OCR (TrOCR)** converts drawing to text
-4. 🤖 **Gemini 2.0 Flash** interprets and solves it
-5. 📬 Result is displayed and can be saved
 
 ---
 
@@ -29,12 +19,12 @@ Welcome to **SketchIQ**, your smart companion for solving **handwritten math equ
 
 | Layer       | Tech                          |
 |-------------|-------------------------------|
-| 🎨 Frontend | React + TypeScript + Tailwind CSS |
-| 🧠 AI       | Microsoft TrOCR, Gemini 2.0 Flash |
-| 🖥️ Backend | Flask (OCR API) + Node.js (LLM & Auth) |
-| 🔐 Auth     | Firebase (Google + OTP Login) |
-| 🧮 DB       | PostgreSQL (via Prisma ORM) |
-| ☁️ Hosting  | Firebase + Ngrok (for Flask API) |
+| 🎨 Frontend | React + Tailwind CSS |
+| 📷 Model       | Microsoft TrOCR  |
+| 🧠 LLM | Gemini Flash 2.0, Llama 3.1 |
+| 🖥️ Backend  | Flask |
+| 🧮 DB       | MongoDB |
+| ☁️ Hosting  | Ngrok  |
 
 ---
 
@@ -44,21 +34,19 @@ Welcome to **SketchIQ**, your smart companion for solving **handwritten math equ
 
 - Node.js
 - Python 3.8+
-- Firebase project
-- PostgreSQL database
 
 ### 🔧 Installation
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/sketchiq.git
+git clone https://github.com/DevanshPaliwal/sketchiq.git
 cd sketchiq
 
 # Install frontend dependencies
-cd client
+cd Frontend
 npm install
 
 # Install backend dependencies
-cd ../server
+cd Backend
 pip install -r requirements.txt
 
